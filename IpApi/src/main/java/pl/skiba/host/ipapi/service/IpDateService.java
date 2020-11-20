@@ -2,11 +2,11 @@ package pl.skiba.host.ipapi.service;
 
 import java.util.List;
 
-import pl.skiba.host.ipapi.db.model.IpDate;
+import pl.skiba.host.ipapi.controller.dto.IpDateDTO;
 
 public interface IpDateService {
 
-	public void save(IpDate entity);
+	public void save(IpDateDTO ipDate);
 
-	public List<IpDate> getCoutByDay();
+	public List<IpDateDTO> getStatistics();
 }

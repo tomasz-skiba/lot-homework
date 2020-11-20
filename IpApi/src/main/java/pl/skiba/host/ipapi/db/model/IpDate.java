@@ -1,6 +1,6 @@
 package pl.skiba.host.ipapi.db.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ public class IpDate {
 	@Id
 	@GeneratedValue
 	private Long ipDateID;
-	private String Ip;
+	private String ip;
 	private Date registerDate;
 
 	public Long getIpDateID() {
@@ -24,11 +24,11 @@ public class IpDate {
 	}
 
 	public String getIp() {
-		return Ip;
+		return this.ip;
 	}
 
 	public void setIp(String ip) {
-		Ip = ip;
+		this.ip = ip;
 	}
 
 	public Date getRegisterDate() {
