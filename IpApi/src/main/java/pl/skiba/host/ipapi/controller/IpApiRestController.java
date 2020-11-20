@@ -2,6 +2,8 @@ package pl.skiba.host.ipapi.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
@@ -34,7 +36,7 @@ public class IpApiRestController {
 	}
 
 	@PostMapping(path = "/save")
-	public void save(@RequestBody IpDateDTO ipObj) {
+	public void save(@RequestBody @Valid IpDateDTO ipObj) {
 		System.out.println("2");
 		service.save(ipObj);
 	}
