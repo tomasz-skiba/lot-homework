@@ -10,3 +10,13 @@ services:
           - .\.env
         environment:
           - MYSQL_DATABASE=lot-maria-db
+    swagger-ui:
+        image: swaggerapi/swagger-ui
+        ports:
+            - 8081:8080
+            - 81:80
+        volumes:
+            - ./Build/swagger/openapi.json:/openapi.json
+        environment:
+            SWAGGER_JSON: /openapi.json
+        container_name: lot-swagger-ui

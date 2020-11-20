@@ -1,0 +1,96 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample IP API for Lot recruitment task",
+        "version": "1.0.0",
+        "title": "Lot - IP API",
+        "contact": {
+            "email": "st.skiba.tomasz@gmail.com"
+        },
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [{
+            "name": "IP",
+            "description": "Operations about IP",
+        }
+    ],
+    "schemes": ["http"],
+    "paths": {
+        "/statistics": {
+            "get": {
+                "tags": ["IP"],
+                "summary": "Shows IP data",
+                "description": "description",
+                "produces": ["application/json", "application/text"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                    }
+                }
+            }
+        },
+		"/save": {
+            "post": {
+                "tags": ["IP"],
+                "summary": "Registers IP data",
+                "description": "description",
+				"consumes": ["application/json"],
+                "produces": ["application/json", "application/text"],
+				"parameters": [{
+                        "in": "body",
+                        "name": "body",
+                        "description": "IP object that needs to be added to the databse",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/IpDateDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+						"schema": {
+                            "$ref": "#/definitions/IPCountByDayDTO"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+		"IpDateDTO": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string",
+					"example": "212.34.52.103",
+					"pattern": 'nnn.nn.nn.nnn'
+                },
+                "registerDate": {
+                    "type": "string",
+					"example": "2020-10-20",
+					"pattern": 'yyyy-MM-dd'
+                },
+            }
+        },
+		"IPCountByDayDTO": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "Date",
+					"example": "2020-10-20",
+					"pattern": 'yyyy-MM-dd'
+                },
+                "count": {
+                    "type": "string",
+					"example": "5",
+                },
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
