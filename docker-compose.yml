@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    maria-db:
+        container_name: lot-maria-db
+        build: .\Build\mariadb\10.4
+        ports: 
+          - 3306:3306
+        env_file:
+          - .\.env
