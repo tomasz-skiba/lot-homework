@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import pl.skiba.host.ipapi.controller.dto.IPCountByDayDTO;
 import pl.skiba.host.ipapi.controller.dto.IpDateDTO;
 import pl.skiba.host.ipapi.service.IpDateService;
 
@@ -35,8 +36,8 @@ public class IpApiRestController {
 	}
 
 	@GetMapping(path = "/statistics")
-	public List<IpDateDTO> statistics() {
-		List<IpDateDTO> statistics = service.getStatistics();
+	public List<IPCountByDayDTO> statistics() {
+		List<IPCountByDayDTO> statistics = service.getStatistics();
 		log.debug("statistics returned parametes: {}", statistics);
 		return statistics;
 	}

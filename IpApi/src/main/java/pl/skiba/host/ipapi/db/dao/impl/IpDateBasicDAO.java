@@ -1,6 +1,7 @@
 package pl.skiba.host.ipapi.db.dao.impl;
 
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,7 +30,7 @@ public class IpDateBasicDAO implements IpDateDAO {
 	}
 
 	@Override
-	public List<IpDate> getCoutByDay() {
+	public Map<Timestamp, Long> getRecordCoutByDay() {
 		// TODO Auto-generated method stub
 		return null;
 	}
