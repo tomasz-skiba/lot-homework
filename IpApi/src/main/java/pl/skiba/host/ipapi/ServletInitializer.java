@@ -1,4 +1,4 @@
-package pl.skiba.host.IpApi;
+package pl.skiba.host.ipapi;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
