@@ -9,5 +9,5 @@ public interface IpDateDAO {
 
 	public void save(IpDate entity);
 
-	public Map<Timestamp, Long> getRecordCoutByDay();
+	public Map<Timestamp, Long> getRecordCountByDay();
 }
