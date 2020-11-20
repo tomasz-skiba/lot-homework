@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import pl.skiba.host.ipapi.service.IpDateService;
 @RestController
 @RequestMapping("/")
 @ComponentScans({ @ComponentScan(basePackages = "pl.skiba.host.ipapi.service.impl") })
+@CrossOrigin
 public class IpApiRestController {
 
 	private final IpDateService service;
