@@ -26,4 +26,9 @@ public class IpDateDTO {
 		this.registerDate = registerDate;
 	}
 
+	@Override
+	public String toString() {
+		return "IpDateDTO [ip=" + ip + ", registerDate=" + registerDate + "]";
+	}
+
 }

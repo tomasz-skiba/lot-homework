@@ -39,4 +39,9 @@ public class IpDate {
 		this.registerDate = registerDate;
 	}
 
+	@Override
+	public String toString() {
+		return "IpDate [ipDateID=" + ipDateID + ", ip=" + ip + ", registerDate=" + registerDate + "]";
+	}
+
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
@@ -22,6 +24,7 @@ import pl.skiba.host.ipapi.service.IpDateService;
 @ComponentScans({ @ComponentScan(basePackages = "pl.skiba.host.ipapi.service.impl") })
 @CrossOrigin
 public class IpApiRestController {
+	Logger log = LoggerFactory.getLogger(IpApiRestController.class);
 
 	private final IpDateService service;
 
@@ -33,13 +36,14 @@ public class IpApiRestController {
 
 	@GetMapping(path = "/statistics")
 	public List<IpDateDTO> statistics() {
-		System.out.println("1");
-		return service.getStatistics();
+		List<IpDateDTO> statistics = service.getStatistics();
+		log.debug("statistics returned parametes: {}", statistics);
+		return statistics;
 	}
 
 	@PostMapping(path = "/save")
 	public void save(@RequestBody @Valid IpDateDTO ipObj) {
-		System.out.println("2");
+		log.debug("save executed with parametes: {}", ipObj);
 		service.save(ipObj);
 	}
 }
