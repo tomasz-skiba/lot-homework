@@ -18,7 +18,7 @@ import pl.skiba.host.ipapi.service.IpDateService;
 
 @RestController
 @RequestMapping("/")
-@ComponentScans({ @ComponentScan(basePackages = "pl.skiba.host.ipapi.service") })
+@ComponentScans({ @ComponentScan(basePackages = "pl.skiba.host.ipapi.service.impl") })
 public class IpApiRestController {
 
 	private final IpDateService service;
