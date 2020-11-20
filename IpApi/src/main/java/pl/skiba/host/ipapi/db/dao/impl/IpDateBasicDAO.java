@@ -2,9 +2,12 @@ package pl.skiba.host.ipapi.db.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import pl.skiba.host.ipapi.db.dao.IpDateDAO;
 import pl.skiba.host.ipapi.db.model.IpDate;
 
+@Repository("IpDateBasicDAO")
 public class IpDateBasicDAO implements IpDateDAO {
 
 	@Override
