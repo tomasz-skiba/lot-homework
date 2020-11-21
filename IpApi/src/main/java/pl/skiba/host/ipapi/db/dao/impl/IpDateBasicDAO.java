@@ -44,7 +44,7 @@ public class IpDateBasicDAO implements IpDateDAO {
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Object[]> cQuery = builder.createQuery(Object[].class);
 			Root<IpDate> root = cQuery.from(IpDate.class);
-			cQuery.multiselect(root.get("registerDate"), builder.count(root.get("ip")));
+			cQuery.multiselect(root.get(IpDate.REGISTER_DATE_CNAME), builder.count(root.get(IpDate.IP_CNAME)));
 			Query<Object[]> query = session.createQuery(cQuery);
 			List<Object[]> resultList = query.getResultList();
 			for (Object[] o : resultList) {
