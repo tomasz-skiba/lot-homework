@@ -3,12 +3,11 @@ package pl.skiba.host.ipapi.controller.dto;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import com.sun.istack.NotNull;
 
 import pl.skiba.host.ipapi.utils.SimpleRegex;
 
