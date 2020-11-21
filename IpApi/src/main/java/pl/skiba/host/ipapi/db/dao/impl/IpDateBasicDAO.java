@@ -20,10 +20,22 @@ import org.springframework.stereotype.Repository;
 import pl.skiba.host.ipapi.db.dao.IpDateDAO;
 import pl.skiba.host.ipapi.db.model.IpDate;
 
+/**
+ * The Class IpDateBasicDAO.
+ * 
+ * @author Tomasz Skiba
+ */
 @Repository("IpDateBasicDAO")
 public class IpDateBasicDAO implements IpDateDAO {
+
+	/** The log. */
 	Logger log = LoggerFactory.getLogger(IpDateBasicDAO.class);
 
+	/**
+	 * Save {@link IpDate} object do database.
+	 *
+	 * @param entity the entity
+	 */
 	@Override
 	public void save(IpDate entity) {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -36,6 +48,12 @@ public class IpDateBasicDAO implements IpDateDAO {
 		}
 	}
 
+	/**
+	 * Gets the record count by day as a {@link Map}.
+	 *
+	 * @see {@link java.sql.Date} - the key of returned {@link Map}
+	 * @return the record count by day
+	 */
 	@Override
 	public Map<Date, Long> getRecordCountByDay() {
 		Map<Date, Long> result = new HashMap<>();
