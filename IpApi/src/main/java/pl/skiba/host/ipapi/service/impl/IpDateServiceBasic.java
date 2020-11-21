@@ -1,9 +1,10 @@
 package pl.skiba.host.ipapi.service.impl;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -36,14 +37,12 @@ public class IpDateServiceBasic implements IpDateService {
 
 	@Override
 	public List<IPCountByDayDTO> getStatistics() {
-		List<IpDateDTO> result = new ArrayList<>();
-		Map<Timestamp, Long> coutByDay = dao.getRecordCoutByDay();
+		Map<Timestamp, Long> coutByDay = dao.getRecordCountByDay();
+		List<IPCountByDayDTO> coutByDayDTO = coutByDay.entrySet().stream()
+				.map(entry -> new IPCountByDayDTO(new Date(entry.getKey().getTime()), entry.getValue()))
+				.collect(Collectors.toList());
 
-//		if (coutByDay != null) {
-//			result = coutByDay.stream().map(data -> new IpDateDTO(data.getIp(), data.getRegisterDate()))
-//					.collect(Collectors.toList());
-//		}
-		return result;
+		return coutByDayDTO;
 	}
 
 }
