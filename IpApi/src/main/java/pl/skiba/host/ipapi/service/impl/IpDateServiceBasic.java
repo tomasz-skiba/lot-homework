@@ -1,6 +1,5 @@
 package pl.skiba.host.ipapi.service.impl;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +36,7 @@ public class IpDateServiceBasic implements IpDateService {
 
 	@Override
 	public List<IPCountByDayDTO> getStatistics() {
-		Map<Timestamp, Long> coutByDay = dao.getRecordCountByDay();
+		Map<java.sql.Date, Long> coutByDay = dao.getRecordCountByDay();
 		List<IPCountByDayDTO> coutByDayDTO = coutByDay.entrySet().stream()
 				.map(entry -> new IPCountByDayDTO(new Date(entry.getKey().getTime()), entry.getValue()))
 				.collect(Collectors.toList());

@@ -1,6 +1,6 @@
 package pl.skiba.host.ipapi.db.dao.impl;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,8 +37,8 @@ public class IpDateBasicDAO implements IpDateDAO {
 	}
 
 	@Override
-	public Map<Timestamp, Long> getRecordCountByDay() {
-		Map<Timestamp, Long> result = new HashMap<>();
+	public Map<Date, Long> getRecordCountByDay() {
+		Map<Date, Long> result = new HashMap<>();
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		try (Session session = sessionFactory.openSession();) {
 			CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -48,7 +48,7 @@ public class IpDateBasicDAO implements IpDateDAO {
 			Query<Object[]> query = session.createQuery(cQuery);
 			List<Object[]> resultList = query.getResultList();
 			for (Object[] o : resultList) {
-				result.put((Timestamp) o[0], (Long) o[1]);
+				result.put((Date) o[0], (Long) o[1]);
 			}
 		} catch (Throwable e) {
 			log.error("Problem executing getRecordCoutByDay: ", e);
