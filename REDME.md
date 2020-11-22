@@ -1,51 +1,42 @@
-#Project run
-Create file 'env.env' in root path of `IpApi` project.
-The 'env.env' file should contain variables:
+# Project run
 
-	MYSQL_ROOT_PASSWORD=password_to_db_root_user
-	MYSQL_ROOT_HOST=ip_to_your_docker_machine
+- Start docker
 
-Start docker
-
-	docker-compose up --build
-
-Go to `IpApi` folder and execute command:
-
-	mvn spring-boot:run
-
-# Project setup
-
-clone repository to your local device
-
-import project IpApi to Eclipse  
-
-	file -> import ->Existing Maven Project
-import launch configuration from `Build` folder 
-
-	file -> import ->Launch Configurations
-
-update project dependencies rightclick project ->Maven -> Update Maven project
-
-
-Create file 'env.env' in root path of project.
-The 'env.env' file should contain variables:
-
-	MYSQL_ROOT_PASSWORD=password_to_db_root_user
-	MYSQL_ROOT_HOST=ip_to_your_docker_machine
+	    docker-compose up --build
 	
-Go to Run configurationos -> select IpApiApplication -> Envirnoement 
-Add variable `MYSQL_ROOT_PASSWORD` and assign the same value as for the corresponding envirnoment variable for docker 
+- If IP mapping problem occurred add ENV `MYSQL_ROOT_HOST=ip_to_host_from_docker_machine` to `docker-compose.yml` 
+This given address should be an address how Docker machine identifies host computer
+
+- Go to `IpApi` folder and execute command:
+
+	    mvn spring-boot:run
+
+Application `Swagger` GUI will be available at your docker IP at port 8081
+
+# Project Eclipse setup
+
+- import project IpApi to Eclipse  
+
+    	file -> import ->Existing Maven Project
+- import launch configuration from `Build` folder 
+
+    	file -> import ->Launch Configurations
+
+- Update project dependencies rightclick project ->Maven -> Update Maven project
 	
-From project directory execute shell command
-	docker-compose up --build
+- From project directory execute shell command
+
+    	docker-compose up --build
 	
-If you see error:
+If ip mapping problem occurred add ENV `MYSQL_ROOT_HOST=ip_to_host_from_docker_machine` to `docker-compose.yml` 
+
+If docker error occures:
 
 	lot-maria-db  | standard_init_linux.go:211: exec user process caused "no such file or directory"
 	lot-maria-db exited with code 1
 	
-Please change file EOL conversion to Unix
+Please change `Build\mariadb\10.4\docker-entrypoint.sh` file EOL conversion to Unix, then retry `docker-compose up --build`
 
-Run application using `IpApiApplication` launch configuration
+- Run application using `IpApiApplication` launch configuration
 
-Application API should be available at port `8081`
+- Application API should be available at port `8081`
