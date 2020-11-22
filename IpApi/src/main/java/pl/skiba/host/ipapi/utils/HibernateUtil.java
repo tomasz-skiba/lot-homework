@@ -26,7 +26,7 @@ public class HibernateUtil {
 	 */
 	public static Session getCurrentSession() throws HibernateException {
 		Map<String, String> settings = new HashMap<>();
-		settings.put("hibernate.connection.url", "jdbc:mysql://skiba-host.local:3306/lot-maria-db");
+		settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/lot-maria-db");
 		settings.put("hibernate.connection.username", System.getenv("MYSQL_ROOT_USER"));
 		settings.put("hibernate.connection.password", System.getenv("MYSQL_ROOT_PASSWORD"));
 		settings.put("connection.driver_class", "com.mysql.jdbc.Driver");

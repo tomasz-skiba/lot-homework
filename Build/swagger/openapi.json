@@ -8,7 +8,7 @@
             "email": "st.skiba.tomasz@gmail.com"
         },
     },
-    "host": "skiba-host.api.local:8080",
+    "host": "localhost:8080",
     "basePath": "/",
     "tags": [{
             "name": "IP",
