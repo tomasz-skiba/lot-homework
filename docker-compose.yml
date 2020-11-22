@@ -10,6 +10,8 @@ services:
           - .\.env
         environment:
           - MYSQL_DATABASE=lot-maria-db
+          - MYSQL_ALLOW_EMPTY_PASSWORD=no
+          - MYSQL_ROOT_USER=root
     swagger-ui:
         image: swaggerapi/swagger-ui
         ports:
