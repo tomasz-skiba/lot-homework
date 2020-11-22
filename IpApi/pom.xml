@@ -101,6 +101,7 @@
 				<version>1.4.0</version>
 				<configuration>
 					<mainClass>pl.skiba.host.ipapi.IpApiApplication</mainClass>
+					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
 			<plugin>
