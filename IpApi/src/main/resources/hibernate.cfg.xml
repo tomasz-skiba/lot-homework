@@ -4,15 +4,6 @@
         "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.url">jdbc:mysql://skiba-host.local:3306/lot-maria-db</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">password_for_db_root_user</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.naming.physical-strategy">org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl</property>
-        
         <mapping class="pl.skiba.host.ipapi.db.model.IpDate"/>
     </session-factory>
 </hibernate-configuration>

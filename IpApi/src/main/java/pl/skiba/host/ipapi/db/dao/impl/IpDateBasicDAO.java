@@ -10,8 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import pl.skiba.host.ipapi.db.dao.IpDateDAO;
 import pl.skiba.host.ipapi.db.model.IpDate;
+import pl.skiba.host.ipapi.utils.HibernateUtil;
 
 /**
  * The Class IpDateBasicDAO.
@@ -38,8 +37,7 @@ public class IpDateBasicDAO implements IpDateDAO {
 	 */
 	@Override
 	public void save(IpDate entity) {
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		try (Session session = sessionFactory.openSession();) {
+		try (Session session = HibernateUtil.getCurrentSession();) {
 			session.beginTransaction();
 			session.save(entity);
 			session.getTransaction().commit();
@@ -57,8 +55,8 @@ public class IpDateBasicDAO implements IpDateDAO {
 	@Override
 	public Map<Date, Long> getRecordCountByDay() {
 		Map<Date, Long> result = new HashMap<>();
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		try (Session session = sessionFactory.openSession();) {
+		try (Session session = HibernateUtil.getCurrentSession();) {
+			session.beginTransaction();
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Object[]> cQuery = builder.createQuery(Object[].class);
 			Root<IpDate> root = cQuery.from(IpDate.class);
@@ -69,6 +67,7 @@ public class IpDateBasicDAO implements IpDateDAO {
 			for (Object[] o : resultList) {
 				result.put((Date) o[0], (Long) o[1]);
 			}
+			session.getTransaction().commit();
 		} catch (Throwable e) {
 			log.error("Problem executing getRecordCoutByDay: ", e);
 		}
