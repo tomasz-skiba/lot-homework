@@ -2,8 +2,12 @@
 
 clone repository to your local device
 
-import project IpApi to Eclipse  file -> import ->Existing Maven Project
-import launch configuration from Build folder file -> import ->Launch Configurations
+import project IpApi to Eclipse  
+
+	file -> import ->Existing Maven Project
+import launch configuration from `Build` folder 
+
+	file -> import ->Launch Configurations
 
 update project dependencies rightclick project ->Maven -> Update Maven project
 
@@ -24,6 +28,7 @@ Add to your hosts file record
 	ip_to_api_server skiba-host.api.local
 
 example values:
+
 	172.17.0.0 skiba-host.local
 	127.0.0.100 skiba-host.api.local
 	
@@ -31,6 +36,7 @@ From project directory execute shell command
 	docker-compose up --build
 	
 If you see error:
+
 	lot-maria-db  | standard_init_linux.go:211: exec user process caused "no such file or directory"
 	lot-maria-db exited with code 1
 Please change file EOL conversion to Unix
