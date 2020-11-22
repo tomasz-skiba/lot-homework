@@ -16,7 +16,12 @@ The 'env.env' file should contain variables:
 
 Add to your hosts file record
 	
-	skiba-host.local ip_to_your_docker_machine
+	ip_to_your_docker_machine skiba-host.local
+	ip_to_api_server skiba-host.api.local
+
+example values:
+	172.17.0.0 skiba-host.local
+	127.0.0.100 skiba-host.api.local
 	
 Update application.properties file with your data.
 
