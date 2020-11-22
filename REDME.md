@@ -8,8 +8,8 @@ import launch configuration from Build folder file -> import ->Launch Configurat
 update project dependencies rightclick project ->Maven -> Update Maven project
 
 
-Create file '.emv' in root path of project.
-The '.emv' file should contain variables:
+Create file 'env.env' in root path of project.
+The 'env.env' file should contain variables:
 
 	MYSQL_ROOT_PASSWORD={password for db root user}
 	MYSQL_ROOT_HOST={ip to your docker machine}

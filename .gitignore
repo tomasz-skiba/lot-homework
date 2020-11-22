@@ -60,4 +60,4 @@ local.properties
 #.project
 
 #Hide env file
-.env
+env.env
