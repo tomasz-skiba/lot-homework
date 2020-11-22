@@ -6,8 +6,6 @@ services:
         build: .\Build\mariadb\10.4
         ports: 
           - 3306:3306
-        env_file:
-          - .\env.env
         environment:
           - MYSQL_DATABASE=lot-maria-db
           - MYSQL_ALLOW_EMPTY_PASSWORD=no
