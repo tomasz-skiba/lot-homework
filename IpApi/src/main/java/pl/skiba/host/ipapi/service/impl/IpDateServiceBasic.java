@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import pl.skiba.host.ipapi.controller.dto.IPCountByDayDTO;
@@ -31,7 +30,7 @@ public class IpDateServiceBasic implements IpDateService {
 	 * @param dao the dao
 	 */
 	@Autowired
-	public IpDateServiceBasic(@Qualifier("IpDateBasicDAO") IpDateDAO dao) {
+	public IpDateServiceBasic(IpDateDAO dao) {
 		super();
 		this.dao = dao;
 	}
@@ -57,7 +56,7 @@ public class IpDateServiceBasic implements IpDateService {
 	@Override
 	public List<IPCountByDayDTO> getStatistics() {
 		Map<java.sql.Date, Long> coutByDay = dao.getRecordCountByDay();
-		List<IPCountByDayDTO> coutByDayDTO = coutByDay.entrySet().stream()
+		List<IPCountByDayDTO> coutByDayDTO = coutByDay.entrySet().stream().filter(entry -> entry.getKey() != null)
 				.map(entry -> new IPCountByDayDTO(entry.getKey().toLocalDate(), entry.getValue()))
 				.collect(Collectors.toList());
 		return coutByDayDTO;
