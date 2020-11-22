@@ -2,7 +2,7 @@
 set -eo pipefail
 shopt -s nullglob
 
-# logging functions
+# logging functions 
 mysql_log() {
 	local type="$1"; shift
 	printf '%s [%s] [Entrypoint]: %s\n' "$(date --rfc-3339=seconds)" "$type" "$*"
