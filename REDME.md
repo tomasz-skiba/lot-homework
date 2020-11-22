@@ -1,3 +1,18 @@
+#Project run
+Create file 'env.env' in root path of `IpApi` project.
+The 'env.env' file should contain variables:
+
+	MYSQL_ROOT_PASSWORD=password_to_db_root_user
+	MYSQL_ROOT_HOST=ip_to_your_docker_machine
+
+Start docker
+
+	docker-compose up --build
+
+Go to `IpApi` folder and execute command:
+
+	mvn spring-boot:run
+
 # Project setup
 
 clone repository to your local device
