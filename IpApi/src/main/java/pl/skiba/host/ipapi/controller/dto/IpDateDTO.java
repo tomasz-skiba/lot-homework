@@ -1,6 +1,6 @@
 package pl.skiba.host.ipapi.controller.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -27,7 +27,7 @@ public class IpDateDTO {
 	/** The register date. */
 	@NotNull
 	@DateTimeFormat(iso = ISO.DATE)
-	public Date registerDate;
+	public LocalDate registerDate;
 
 	/**
 	 * Instantiates a new ip date DTO.
@@ -35,7 +35,7 @@ public class IpDateDTO {
 	 * @param ip
 	 * @param registerDate
 	 */
-	public IpDateDTO(String ip, Date registerDate) {
+	public IpDateDTO(String ip, LocalDate registerDate) {
 		super();
 		this.ip = ip;
 		this.registerDate = registerDate;

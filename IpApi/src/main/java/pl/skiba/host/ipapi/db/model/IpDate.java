@@ -1,14 +1,12 @@
 package pl.skiba.host.ipapi.db.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * The Class IpDate model.
@@ -43,7 +41,6 @@ public class IpDate {
 
 	/** The register date. */
 	@Column(name = IpDate.REGISTER_DATE_CNAME, nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date registerDate;
 
 	/**

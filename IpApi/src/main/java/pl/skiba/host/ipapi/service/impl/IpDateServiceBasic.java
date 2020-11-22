@@ -1,5 +1,6 @@
 package pl.skiba.host.ipapi.service.impl;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,10 +44,15 @@ public class IpDateServiceBasic implements IpDateService {
 	 */
 	@Override
 	public void save(IpDateDTO ipDate) {
+		IpDate entity = getEntityFromDTO(ipDate);
+		dao.save(entity);
+	}
+
+	private IpDate getEntityFromDTO(IpDateDTO ipDate) {
 		IpDate entity = new IpDate();
 		entity.setIp(ipDate.ip);
-		entity.setRegisterDate(ipDate.registerDate);
-		dao.save(entity);
+		entity.setRegisterDate(Date.valueOf(ipDate.registerDate));
+		return entity;
 	}
 
 	/**
